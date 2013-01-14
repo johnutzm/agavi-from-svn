@@ -101,6 +101,10 @@ class AgaviPhptalRenderer extends AgaviRenderer
 			$phptal->setEncoding($this->getParameter('encoding'));
 		}
 		
+		if($this->hasParameter('output_mode')) {
+			$phptal->setOutputMode(constant('PHPTAL::'.strtoupper($this->getParameter('output_mode'))));
+		}		
+		
 		return $phptal;
 	}
 
